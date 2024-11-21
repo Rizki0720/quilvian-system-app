@@ -18,7 +18,7 @@ body {
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background-color: #eff7f8;
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -34,6 +34,30 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+.scrollable {
+  scrollbar-width: none; 
+
+  /* For Webkit-based browsers */
+}
+.scrollable::-webkit-scrollbar {
+  width: 2px;
+}
+
+.scrollable::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.scrollable::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 
 @media (prefers-color-scheme: dark) {
   html {

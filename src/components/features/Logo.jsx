@@ -22,8 +22,6 @@ const Logo = ({ src, alt }) => {
                 alt={alt} 
                 maxWidth="450px"
                 mt={"-100px"}
-                border={"2px solid white"}
-                bg={"white"}
                 borderRadius={"4xl"}
             />
             <Text color={"white"} fontSize={"2xl"} fontWeight={"bold"}>Manage your Order</Text>

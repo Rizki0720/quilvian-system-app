@@ -1,4 +1,4 @@
-'use client';
+
 
 import { Box, Container, Flex,Link} from '@chakra-ui/react';
 import SignInForms from '@/components/features/SignInForms';
@@ -23,7 +23,7 @@ export default function Login() {
             textAlign="center" 
             left={{base:0,md:"250px"}} 
             position={"relative"} 
-            bg={"#089bab"} 
+            bg={"teal.800"} 
             borderRadius="4xl" 
             mb={{ base: 6, lg: 0 }} 
           >

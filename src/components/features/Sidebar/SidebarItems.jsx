@@ -1,15 +1,22 @@
-import React, { useState } from "react";
-import { Box, IconButton, VStack, Text, Image, Flex, Icon} from "@chakra-ui/react";
-import {  FaHome } from "react-icons/fa";
-import { BsThreeDots , BsThreeDotsVertical  } from "react-icons/bs";
+'use client'
+import { Box,VStack, Text,  Flex} from "@chakra-ui/react";
 import { 
   RiUserAddFill, 
   RiGroupFill,
-  RiHospitalFill
+  RiHospitalFill,
+  RiFileListLine,
+  RiMoneyDollarBoxLine,
+  RiShieldCheckLine,
+  RiStethoscopeFill,
+  RiDossierLine,
+  RiHotelBedFill,
+  RiStethoscopeLine,
+  RiPulseLine,
+  RiHeartPulseFill,
+  RiTeamLine
  } from "react-icons/ri";
 import Link from "next/link";
 import { AccordionItemContent, AccordionItemTrigger, AccordionRoot, AccordionItem } from "@/components/ui/accordion";
-import { color } from "framer-motion";
 export default function SideItems({isMinimized}) {
     
     return (
@@ -24,7 +31,7 @@ export default function SideItems({isMinimized}) {
             display={"flex"}
             alignItems={isMinimized ? "center" : "flex-start"}
         >
-            <AccordionRoot type="single" defaultValue="Admisi" collapsible color={"white"}>
+             <AccordionRoot type="single" defaultValue="Admisi" collapsible color={"white"}>
               <AccordionItem 
                 borderRadius={"2xl"} 
                 px={isMinimized ? "3" : "1"}
@@ -39,11 +46,9 @@ export default function SideItems({isMinimized}) {
               >
                 <AccordionItemTrigger>
                   {isMinimized 
-                    ? <RiHospitalFill/> 
+                    ? <RiFileListLine/> 
                     : <Flex gap={"10px"}>
-                        <Icon fontSize={isMinimized ? "20px" : "20px"}>
-                            <RiHospitalFill /> 
-                        </Icon>
+                        <RiFileListLine size={isMinimized ? "20px" : "20px"} />
                         <Text  fontSize={"15px"}>Admisi</Text>
                       </Flex>
                   }
@@ -54,95 +59,97 @@ export default function SideItems({isMinimized}) {
                   fontSize={"15px"}
                 >
                   {isMinimized 
-                  ? <RiGroupFill/> 
+                  ? <RiUserAddFill/> 
                   : <Box>
-                        <Flex p={"10px"}>
-                        <Link href="/Pendaftaran">
-                        <Text>Pendaftaran Pasien</Text>
-                        </Link>
-                    </Flex>
+                        <Flex gap={"10px"} p={"10px"}>
+                        <RiUserAddFill size={isMinimized ? "20px" : "20px"}/> 
+                            <Link href="/Pendaftaran">
+                                <Text>Pendaftaran Pasien</Text>
+                            </Link>
+                        </Flex>
                     </Box> 
                   } 
                 </AccordionItemContent>
               </AccordionItem>
             </AccordionRoot>
+
              <Link href="/Asuransi">
                 {isMinimized 
-                    ? <RiUserAddFill/> 
+                    ? <RiShieldCheckLine/> 
                     :  <Flex pl={"5px"} gap={"10px"}>
-                            <RiUserAddFill size={isMinimized ? "20px" : "20px"} />
+                            <RiShieldCheckLine size={isMinimized ? "20px" : "20px"} />
                             <Text fontSize={"15px"}>Asuransi</Text>
                        </Flex>
                 }
             </Link>
             <Link href={"/Management Kesehatan"} >
                 {isMinimized 
-                    ? <RiHospitalFill/> 
+                    ? <RiMoneyDollarBoxLine/> 
                     : <Flex pl={"5px"} gap={"10px"}>
-                        <RiHospitalFill size={isMinimized ? "20px" : "20px"} />
+                        <RiMoneyDollarBoxLine size={isMinimized ? "20px" : "20px"} />
                         <Text fontSize={"15px"}>Kasir</Text>
                       </Flex>
                 }
             </Link>
             <Link href={"/Management Kesehatan"} >
                 {isMinimized 
-                    ? <RiHospitalFill/> 
+                    ? <RiStethoscopeFill/> 
                     : <Flex pl={"5px"} gap={"10px"}>
-                        <RiHospitalFill size={isMinimized ? "20px" : "20px"} />
+                        <RiStethoscopeFill size={isMinimized ? "20px" : "20px"} />
                         <Text fontSize={"15px"}>Dokter</Text>
                       </Flex>
                 }
             </Link>
             <Link href={"/Management Kesehatan"} >
                 {isMinimized 
-                    ? <RiHospitalFill/> 
+                    ? <RiDossierLine/> 
                     : <Flex pl={"5px"} gap={"10px"}>
-                        <RiHospitalFill size={isMinimized ? "20px" : "20px"} />
+                        <RiDossierLine size={isMinimized ? "20px" : "20px"} />
                         <Text fontSize={"15px"}>Rawat Jalan</Text>
                       </Flex>
                 }
             </Link>
             <Link href={"/Management Kesehatan"} >
                 {isMinimized 
-                    ? <RiHospitalFill/> 
+                    ? <RiHotelBedFill/> 
                     : <Flex pl={"5px"} gap={"10px"}>
-                        <RiHospitalFill size={isMinimized ? "20px" : "20px"} />
+                        <RiHotelBedFill size={isMinimized ? "20px" : "20px"} />
                         <Text fontSize={"15px"}>Rawat Inap</Text>
                       </Flex>
                 }
             </Link>
             <Link href={"/Management Kesehatan"} >
                 {isMinimized 
-                    ? <RiHospitalFill/> 
+                    ? <RiStethoscopeLine/> 
                     : <Flex pl={"5px"} gap={"10px"}>
-                        <RiHospitalFill size={isMinimized ? "20px" : "20px"} />
+                        <RiStethoscopeLine size={isMinimized ? "20px" : "20px"} />
                         <Text fontSize={"15px"}>Farmasi</Text>
                       </Flex>
                 }
             </Link>
             <Link href={"/Management Kesehatan"} >
                 {isMinimized 
-                    ? <RiHospitalFill/> 
+                    ? <RiPulseLine/> 
                     : <Flex pl={"5px"} gap={"10px"}>
-                        <RiHospitalFill size={isMinimized ? "20px" : "20px"} />
+                        <RiPulseLine size={isMinimized ? "20px" : "20px"} />
                         <Text fontSize={"15px"}>IGD</Text>
                       </Flex>
                 }
             </Link>
             <Link href={"/Management Kesehatan"} >
                 {isMinimized 
-                    ? <RiHospitalFill/> 
+                    ? <RiHeartPulseFill/> 
                     : <Flex pl={"5px"} gap={"10px"}>
-                        <RiHospitalFill size={isMinimized ? "20px" : "20px"} />
+                        <RiHeartPulseFill size={isMinimized ? "20px" : "20px"} />
                         <Text fontSize={"15px"}>ICU</Text>
                       </Flex>
                 }
             </Link>
             <Link href={"/Management Kesehatan"} >
                 {isMinimized 
-                    ? <RiHospitalFill/> 
+                    ? <RiTeamLine/> 
                     : <Flex pl={"5px"} gap={"10px"}>
-                        <RiHospitalFill size={isMinimized ? "20px" : "20px"} />
+                        <RiTeamLine size={isMinimized ? "20px" : "20px"} />
                         <Text fontSize={"15px"}>CRM</Text>
                       </Flex>
                 }
@@ -150,12 +157,12 @@ export default function SideItems({isMinimized}) {
             
             <Text letterSpacing={"1px"}>Departemens</Text>
 
-            <AccordionRoot type="single" defaultValue="Admisi" collapsible color={"white"}>
+            <AccordionRoot type="single" defaultValue="pelayanan medic" collapsible color={"white"}>
               <AccordionItem 
                 borderRadius={"2xl"} 
                 px={isMinimized ? "3" : "1"}
                 pt={"2"}
-                value={"Admisi"} 
+                value={"pelayanan medic"} 
                 transition="background-color 1.5s ease-in-out"
                 bg={isMinimized ? "none" : "white"}
                 _expanded={{ bg: "white", color: "teal.800" }}
@@ -167,9 +174,7 @@ export default function SideItems({isMinimized}) {
                   {isMinimized 
                     ? <RiHospitalFill/> 
                     : <Flex gap={"10px"}>
-                        <Icon fontSize={isMinimized ? "20px" : "20px"}>
-                            <RiHospitalFill /> 
-                        </Icon>
+                        <RiHospitalFill size={isMinimized ? "20px" : "20px"} /> 
                         <Text  fontSize={"15px"}>Pelayanan Medic</Text>
                       </Flex>
                   }
@@ -197,6 +202,7 @@ export default function SideItems({isMinimized}) {
                 </AccordionItemContent>
               </AccordionItem>
             </AccordionRoot>
+            
             <AccordionRoot type="single" defaultValue="Admisi" collapsible color={"white"}>
               <AccordionItem 
                 borderRadius={"2xl"} 
@@ -214,9 +220,7 @@ export default function SideItems({isMinimized}) {
                   {isMinimized 
                     ? <RiHospitalFill/> 
                     : <Flex gap={"10px"}>
-                        <Icon fontSize={isMinimized ? "20px" : "20px"}>
-                            <RiHospitalFill /> 
-                        </Icon>
+                        <RiHospitalFill size={isMinimized ? "20px" : "20px"} /> 
                         <Text  fontSize={"15px"}>Pelayanan Medic</Text>
                       </Flex>
                   }

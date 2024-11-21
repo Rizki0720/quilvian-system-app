@@ -1,17 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
-import { Box, IconButton, VStack, Text, Image, Flex, Icon} from "@chakra-ui/react";
+import { Box, IconButton,  Text, Image, Flex} from "@chakra-ui/react";
 import {  FaHome } from "react-icons/fa";
 import { BsThreeDots , BsThreeDotsVertical  } from "react-icons/bs";
 import { 
-  RiUserAddFill, 
-  RiGroupFill,
-  RiHospitalFill
+  RiSpeedUpLine 
  } from "react-icons/ri";
 import Link from "next/link";
-import { AccordionItemContent, AccordionItemTrigger, AccordionRoot, AccordionItem } from "@/components/ui/accordion";
-import { color } from "framer-motion";
 import SideItems from "./SidebarItems";
 // import { Button } from "@/components/ui/button";
 
@@ -26,7 +22,7 @@ const SideBar = () => {
     <Box>
       {/* Sidebar */}
       <Box
-        position="fixed"
+        position="relative"
         top="0"
         left="0"
         height="100vh"
@@ -38,6 +34,25 @@ const SideBar = () => {
         shadow="lg"
         display="flex"
         flexDirection="column"
+        className="scrollable"
+        overflowY={"auto"}
+        scrollBehavior={"smooth"}
+        sx={{
+          "::-webkit-scrollbar": {
+            width: "2px",
+          },
+          "::-webkit-scrollbar-thumb": {
+            background: "#2d3748",
+            borderRadius: "2px",
+          },
+          "::-webkit-scrollbar-thumb:hover": {
+            background: "#4a5568",
+          },
+          "::-webkit-scrollbar-track": {
+            background: "#e2e8f0",
+            borderRadius: "8px",
+          },
+        }}
       >
         {/* Sidebar Header */}
         <Box
@@ -73,11 +88,11 @@ const SideBar = () => {
             borderRadius={"4xl"}
             shadow={isMinimized ? "none" : "lg"}
           >
-          <Link href="/3" > 
+          <Link href="/Auth/Login" > 
             {isMinimized 
             ? <FaHome /> 
             : <Flex gap={"10px"}> 
-                <RiGroupFill color="#089bab" size={isMinimized ? "20px" : "20px"}/> 
+                <RiSpeedUpLine  color="#089bab" size={isMinimized ? "20px" : "20px"}/> 
                 <Text color={isMinimized ? "white" : "#089bab"} letterSpacing={"1px"}>Dashboard</Text> 
               </Flex> }
             
