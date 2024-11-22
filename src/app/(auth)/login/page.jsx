@@ -1,6 +1,6 @@
 
 
-import { Box, Container, Flex,Link} from '@chakra-ui/react';
+import { Box, Container, Flex} from '@chakra-ui/react';
 import SignInForms from '@/components/features/SignInForms';
 import Logo from '@/components/features/Logo';
 

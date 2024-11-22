@@ -12,7 +12,7 @@ import {
 
 const Navbar = () => {
     return (
-        <Box borderRadius={"3xl"} shadow={"md"} w={"100%"} p={"15px"}>
+        <Box borderRadius={"3xl"} bg={"white"} shadow={"md"} w={"100%"} p={"15px"}>
             <Flex direction={"row"} justifyContent={"space-between"}>
                 <Field w={"30%"}>
                     <Input 
@@ -27,14 +27,14 @@ const Navbar = () => {
                         <RiSearchLine color="#089bab" />
                     </Box>
                 </Field>
-                <Box display={"flex"} gap={"20px"} mr={"40px"}>
+                <Box display={"flex"} gap={"10px"} mr={"40px"}>
                     <Button variant="outline" size="sm" border="none">
                         <RiFullscreenFill />
                     </Button>
                     <MenuRoot>
                         <MenuTrigger asChild p={"5px"}>
                             <Button variant="outline" size="sm" border="none">
-                               <RiNotification3Fill />
+                               <RiNotification3Fill color="#089bab" />
                             </Button>
                         </MenuTrigger>
                         <MenuContent>
@@ -48,7 +48,7 @@ const Navbar = () => {
                     <MenuRoot>
                         <MenuTrigger asChild p={"20px"}>
                             <Button variant="outline" size="sm" border="none">
-                                <RiMailOpenLine />
+                                <RiMailOpenLine color="#089bab" />
                             </Button>
                         </MenuTrigger>
                         <MenuContent>
@@ -66,7 +66,7 @@ const Navbar = () => {
                                     <Image src="/Images/logo-quilvian-1.png" w={"50px"} h={"50px"} alt="Logo" />
                                     <Flex direction={"column"}>
                                         <Text>Quilvian</Text>
-                                        <Text fontSize={"xs"}>Available</Text>
+                                        <Text color={"#089bab"} fontSize={"xs"}>Available</Text>
                                     </Flex>
                                 </Flex>
                             
