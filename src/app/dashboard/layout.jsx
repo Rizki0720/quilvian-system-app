@@ -1,12 +1,36 @@
-import React from 'react'
+"use client";
+import React, { useEffect, useRef, useState } from 'react'
 import { Box, Flex } from '@chakra-ui/react'
 import Navbar from '@/components/features/Navbar/Navbar'
 
 function DashboardLayout({children}) {
+  const containerRef = useRef(null);
+  const [isFixed, setIsFixed ] = useState(false);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    const handleScroll = () => {
+      if(container.scrollTop > 50){
+        setIsFixed(true);
+      }else{
+        setIsFixed(false);
+      }
+    };
+    if(container){
+      container.addEventListener("scroll", handleScroll);
+    }
+    return () => {
+      if (container) {
+        container.removeEventListener("scroll", handleScroll);
+      }
+    };
+  },[]);
+
   return (
     <Flex bg={"teal.800"} minH={"100vh"} direction={"column"} overflow="hidden">
         
       <Box
+        ref={containerRef}
         flex={1}
         bg={"#eff7f8"}
         borderRadius={"3xl"}
@@ -38,7 +62,7 @@ function DashboardLayout({children}) {
           gap={"20px"}
           m={"20px"}
         >
-          <Navbar />
+          <Navbar isFixed={isFixed} />
           <Box w={"100%"}>
             {children}
           </Box>

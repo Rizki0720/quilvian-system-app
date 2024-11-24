@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { Box, Flex, Input, Text, Link, VStack, Icon, Separator } from '@chakra-ui/react';
 import { Button } from '../ui/button';
@@ -7,11 +7,12 @@ import { Field } from '../ui/field';
 import * as Yup from 'yup';
 import { Formik, Form } from 'formik';
 import { PasswordInput } from '../ui/password-input';
-import { FaInstagram } from "react-icons/fa";
+import dynamic from 'next/dynamic';
+
 
 
 const SignInForms = () => {
-    
+    const inputPassword = dynamic(() => import('../ui/password-input').then(mod => mod.PasswordInput), { ssr: false })
     return (
         <Formik 
             initialValues={{ email: "", password: "" }}
@@ -58,7 +59,17 @@ const SignInForms = () => {
                                 helperText="We'll never share your password with anyone else."
                                 errorText={formik.touched.password && formik.errors.password}
                             >
-                                <PasswordInput p={"10px"} border="none" borderBottom={"1px solid black"} name="password" placeholder="Password" />
+                                <PasswordInput 
+                                    p={"10px"} 
+                                    border="none" 
+                                    borderBottom={"1px solid black"} 
+                                    name="password" 
+                                    placeholder="Password" 
+                                    onChange={(e) => {
+                                        console.log(e.target.value);
+                                        formik.handleChange(e);
+                                    }} 
+                                />
                             </Field>
                         </VStack>
                         <Flex justify="space-between" mt={10} mb={4}>
@@ -78,14 +89,14 @@ const SignInForms = () => {
                                     Sign up
                                 </Link>
                             </Text>
-                            <Flex justify="center" mt={4}>
+                            {/* <Flex justify="center" mt={4}>
                                 <Link href="https://www.instagram.com/" color="blue.500" mx={2}>
                                 <Icon size={"md"}>
                                     <FaInstagram />
                                 </Icon>
                                 </Link>
                             
-                            </Flex>
+                            </Flex> */}
                         </Flex>
                     </Box>
                     

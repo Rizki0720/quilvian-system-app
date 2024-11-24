@@ -1,19 +1,18 @@
-import localFont from "next/font/local";
 import "./globals.css";
 import { Provider } from "@/components/ui/provider";
 import { ErrorBoundary } from "next/dist/client/components/error-boundary";
-import SideBar from "../components/features/Sidebar/Sidebar";
+import SidebarWrapper from "@/components/features/Sidebar/sidebarWrapper";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+// const geistSans = localFont({
+//   src: "./fonts/GeistVF.woff",
+//   variable: "--font-geist-sans",
+//   weight: "100 900",
+// });
+// const geistMono = localFont({
+//   src: "./fonts/GeistMonoVF.woff",
+//   variable: "--font-geist-mono",
+//   weight: "100 900",
+// });
 
 export const metadata = {
   title: "Quilvian System App",
@@ -23,13 +22,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="en" suppressHydrationWarning={true} >
+      <body>
         <ErrorBoundary>
           <Provider>
             <div style={{ display: "flex", height: "100vh", width: "100vw", backgroundColor: "white" }}>
               {/* Sidebar Component */}
-              <SideBar />
+              <SidebarWrapper />
 
               {/* Main Content */}
               <main style={{ flex: 1, overflow: "auto" }}>

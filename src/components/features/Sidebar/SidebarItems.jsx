@@ -17,8 +17,12 @@ import {
  } from "react-icons/ri";
 import Link from "next/link";
 import { AccordionItemContent, AccordionItemTrigger, AccordionRoot, AccordionItem } from "@/components/ui/accordion";
+import { useState } from "react";
 export default function SideItems({isMinimized}) {
-    
+  const [isActive, setIsActive] = useState(null);
+  const toggleItem = (itemaValues) => {
+    return setIsActive((prev) => prev === itemaValues ? null : itemaValues);
+  }
     return (
         <VStack  
             spacing={4}
@@ -31,43 +35,44 @@ export default function SideItems({isMinimized}) {
             display={"flex"}
             alignItems={isMinimized ? "center" : "flex-start"}
         >
-             <AccordionRoot type="single" defaultValue="Admisi" collapsible color={"white"}>
+            <AccordionRoot type="single" defaultValue="Admisi" collapsible color={"white"}>
               <AccordionItem 
-                borderRadius={"2xl"} 
+                borderRadius={"2xl"}
                 px={isMinimized ? "3" : "1"}
-                pt={"2"}
-                value={"Admisi"} 
+                py={"2"}
+                value={"Admisi"}
+                bg={isMinimized ? (isActive === "Admisi" ? "teal.800" : "teal.800") : (isActive === "Admisi" ? "white" : "teal.800")}
+                color={isMinimized ? (isActive === "Admisi" ? "white" : "white") : (isActive === "Admisi" ? "teal.800" : "white")}
                 transition="background-color 1.5s ease-in-out"
-                bg={isMinimized ? "none" : "white"}
-                _expanded={{ bg: "white", color: "teal.800" }}
-                color={isMinimized ? "none" : "teal.800"} 
                 borderBottom={"none"}
-                
               >
-                <AccordionItemTrigger>
+                <AccordionItemTrigger
+                  pt={"2"} 
+                  onClick={() => toggleItem("Admisi")}
+                >
                   {isMinimized 
                     ? <RiFileListLine/> 
                     : <Flex gap={"10px"}>
                         <RiFileListLine size={isMinimized ? "20px" : "20px"} />
-                        <Text  fontSize={"15px"}>Admisi</Text>
+                        <Text fontSize={"15px"}>Admisi</Text>
                       </Flex>
                   }
                 </AccordionItemTrigger>
                 <AccordionItemContent
-                  transition="background-color 1.50s ease-in-out"  
+                  transition="all 1.5s ease-in-out"
                   pt={"2"}
                   fontSize={"15px"}
                 >
                   {isMinimized 
-                  ? <RiUserAddFill/> 
-                  : <Box>
+                    ? <RiUserAddFill/> 
+                    : <Box>
                         <Flex gap={"10px"} p={"10px"}>
-                        <RiUserAddFill size={isMinimized ? "20px" : "20px"}/> 
-                            <Link href="/Pendaftaran">
-                                <Text>Pendaftaran Pasien</Text>
-                            </Link>
+                          <RiUserAddFill size={isMinimized ? "20px" : "20px"}/> 
+                          <Link href="/Pendaftaran">
+                            <Text>Pendaftaran Pasien</Text>
+                          </Link>
                         </Flex>
-                    </Box> 
+                      </Box> 
                   } 
                 </AccordionItemContent>
               </AccordionItem>

@@ -31,7 +31,7 @@ const SideBar = () => {
         bg={"teal.800"}
         color="white"
         zIndex="1000"
-        shadow="lg"
+        border={"none"}
         display="flex"
         flexDirection="column"
         className="scrollable"

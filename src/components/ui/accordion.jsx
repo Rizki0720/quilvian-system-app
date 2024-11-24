@@ -6,7 +6,7 @@ export const AccordionItemTrigger = React.forwardRef(
   function AccordionItemTrigger(props, ref) {
     const { children, indicatorPlacement = 'end', ...rest } = props
     return (
-      <Accordion.ItemTrigger multiple={false} {...rest} ref={ref}>
+      <Accordion.ItemTrigger {...rest} ref={ref}>
         {indicatorPlacement === 'start' && (
           <Accordion.ItemIndicator rotate={{ base: '-90deg', _open: '0deg' }}>
             <LuChevronDown />
@@ -29,7 +29,11 @@ export const AccordionItemContent = React.forwardRef(
   function AccordionItemContent(props, ref) {
     return (
       <Accordion.ItemContent>
-        <Accordion.ItemBody {...props} ref={ref} />
+        <Accordion.ItemBody 
+          {...props} 
+          ref={ref}
+          overflow='hidden'
+        />
       </Accordion.ItemContent>
     )
   },

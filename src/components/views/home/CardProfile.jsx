@@ -20,6 +20,59 @@ function CardProfile() {
                 </Flex>
             </Box>
         </Flex>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
+        <Text>HELLO</Text>
     </Box>   
   )
 }

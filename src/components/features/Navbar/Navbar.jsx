@@ -10,15 +10,28 @@ import {
   MenuTrigger,
 } from "@/components/ui/menu"
 
-const Navbar = () => {
+const Navbar = ({isFixed}) => {
+
     return (
-        <Box borderRadius={"3xl"} bg={"white"} shadow={"md"} w={"100%"} p={"15px"}>
+        <Box 
+            borderRadius={isFixed ? "none" : "3xl"}
+            position={isFixed ? "fixed" : "relative"}
+            top={isFixed ? "0" : "auto"}
+            zIndex="10" 
+            transition="all 0.3s ease" 
+            bg={"white"} 
+            shadow={"md"} 
+            w={"100%"} 
+            p={"15px"}
+        >
             <Flex direction={"row"} justifyContent={"space-between"}>
                 <Field w={"30%"}>
                     <Input 
                         placeholder='Type here to search...' 
                         p={"5px"} 
-                        px={"10px"} 
+                        px={"10px"}
+                        border={"none"}
+                        name="search" 
                         borderRadius={"xl"} 
                         bg={"#ceebee"} 
                         position={"relative"}
@@ -46,7 +59,7 @@ const Navbar = () => {
                         </MenuContent>
                     </MenuRoot>
                     <MenuRoot>
-                        <MenuTrigger asChild p={"20px"}>
+                        <MenuTrigger asChild p={"5px"}>
                             <Button variant="outline" size="sm" border="none">
                                 <RiMailOpenLine color="#089bab" />
                             </Button>
