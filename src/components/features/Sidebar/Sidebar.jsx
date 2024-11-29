@@ -88,7 +88,7 @@ const SideBar = () => {
             borderRadius={"4xl"}
             shadow={isMinimized ? "none" : "lg"}
           >
-          <Link href="/login" > 
+          <Link href="/dashboardHome" > 
             {isMinimized 
             ? <FaHome /> 
             : <Flex gap={"10px"}> 

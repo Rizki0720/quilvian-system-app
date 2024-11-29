@@ -17,12 +17,13 @@ const Navbar = ({isFixed}) => {
             borderRadius={isFixed ? "none" : "3xl"}
             position={isFixed ? "fixed" : "relative"}
             top={isFixed ? "0" : "auto"}
+            m={"20px"}
             zIndex="10" 
             transition="all 0.3s ease" 
             bg={"white"} 
             shadow={"md"} 
             w={"100%"} 
-            p={"15px"}
+            p={"20px"}
         >
             <Flex direction={"row"} justifyContent={"space-between"}>
                 <Field w={"30%"}>

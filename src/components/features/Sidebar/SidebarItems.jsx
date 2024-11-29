@@ -37,7 +37,7 @@ export default function SideItems({isMinimized}) {
         >
             <AccordionRoot type="single" defaultValue="Admisi" collapsible color={"white"}>
               <AccordionItem 
-                borderRadius={"2xl"}
+                borderRadius={"3xl"}
                 px={isMinimized ? "3" : "1"}
                 py={"2"}
                 value={"Admisi"}
@@ -68,7 +68,7 @@ export default function SideItems({isMinimized}) {
                     : <Box>
                         <Flex gap={"10px"} p={"10px"}>
                           <RiUserAddFill size={isMinimized ? "20px" : "20px"}/> 
-                          <Link href="/Pendaftaran">
+                          <Link href="/PendaftaranPasien">
                             <Text>Pendaftaran Pasien</Text>
                           </Link>
                         </Flex>
@@ -162,20 +162,20 @@ export default function SideItems({isMinimized}) {
             
             <Text letterSpacing={"1px"}>Departemens</Text>
 
-            <AccordionRoot type="single" defaultValue="pelayanan medic" collapsible color={"white"}>
+            <AccordionRoot type="single" defaultValue="PelayananMedis" collapsible color={"white"}>
               <AccordionItem 
                 borderRadius={"2xl"} 
                 px={isMinimized ? "3" : "1"}
                 pt={"2"}
-                value={"pelayanan medic"} 
-                transition="background-color 1.5s ease-in-out"
-                bg={isMinimized ? "none" : "white"}
-                _expanded={{ bg: "white", color: "teal.800" }}
-                color={isMinimized ? "none" : "teal.800"} 
+                value={"PelayananMedis"} 
+                bg={isMinimized ? (isActive === "PelayananMedis" ? "teal.800" : "teal.800") : (isActive === "PelayananMedis" ? "white" : "teal.800")}
+                color={isMinimized ? (isActive === "PelayananMedis" ? "white" : "white") : (isActive === "PelayananMedis" ? "teal.800" : "white")}
+                transition={isActive === "PelayananMedis" ? "background-color 1.5s ease-in-out" : "background-color 1.5s ease-in-out"}
                 borderBottom={"none"}
                 
               >
-                <AccordionItemTrigger>
+                <AccordionItemTrigger 
+                onClick={() => toggleItem("PelayananMedis")}>
                   {isMinimized 
                     ? <RiHospitalFill/> 
                     : <Flex gap={"10px"}>
@@ -208,25 +208,25 @@ export default function SideItems({isMinimized}) {
               </AccordionItem>
             </AccordionRoot>
             
-            <AccordionRoot type="single" defaultValue="Admisi" collapsible color={"white"}>
+            <AccordionRoot type="single" defaultValue="PenunjangMedis" collapsible color={"white"}>
               <AccordionItem 
                 borderRadius={"2xl"} 
                 px={isMinimized ? "3" : "1"}
                 pt={"2"}
-                value={"Admisi"} 
-                transition="background-color 1.5s ease-in-out"
-                bg={isMinimized ? "none" : "white"}
-                _expanded={{ bg: "white", color: "teal.800" }}
-                color={isMinimized ? "none" : "teal.800"} 
+                value={"PenunjangMedis"} 
+                bg={isMinimized ? (isActive === "PenunjangMedis" ? "teal.800" : "teal.800") : (isActive === "PenunjangMedis" ? "white" : "teal.800")}
+                color={isMinimized ? (isActive === "PenunjangMedis" ? "white" : "white") : (isActive === "PenunjangMedis" ? "teal.800" : "white")}
+                transition={isActive === "PenunjangMedis" ? "background-color 1.5s ease-in-out" : "background-color 1.5s ease-in-out"}
                 borderBottom={"none"}
                 
               >
-                <AccordionItemTrigger>
+                <AccordionItemTrigger 
+                onClick={() => toggleItem("PenunjangMedis")}>
                   {isMinimized 
                     ? <RiHospitalFill/> 
                     : <Flex gap={"10px"}>
                         <RiHospitalFill size={isMinimized ? "20px" : "20px"} /> 
-                        <Text  fontSize={"15px"}>Pelayanan Medic</Text>
+                        <Text  fontSize={"15px"}>Penunjang Medic</Text>
                       </Flex>
                   }
                 </AccordionItemTrigger>

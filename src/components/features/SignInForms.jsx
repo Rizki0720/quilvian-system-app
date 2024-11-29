@@ -7,22 +7,37 @@ import { Field } from '../ui/field';
 import * as Yup from 'yup';
 import { Formik, Form } from 'formik';
 import { PasswordInput } from '../ui/password-input';
-import dynamic from 'next/dynamic';
-
+import { useDispatch, useSelector } from 'react-redux';
+// import { useRouter } from 'next/router';
+import { LoginUser } from '@/lib/state/slice/loginUserSlice';
 
 
 const SignInForms = () => {
-    const inputPassword = dynamic(() => import('../ui/password-input').then(mod => mod.PasswordInput), { ssr: false })
+    const dispatch = useDispatch();
+    // const router = useRouter();
+
+    // const {loading, error} = useSelector(state => state.loginUser);
+
+    const handleLogin = (values) => {
+        dispatch(LoginUser(values))
+        .then((result) => {
+            if(result.payload){
+                console.log(result.payload);
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+    }
+   
     return (
         <Formik 
-            initialValues={{ email: "", password: "" }}
+            initialValues={{ username: "", password: "" }}
             validationSchema={Yup.object({
-                email: Yup.string().email('Invalid email').required('Required'),
-                password: Yup.string().required('Required').max(20, 'Must be 20 characters or less'),
+                username: Yup.string().required('username tidak boleh kosong'),
+                password: Yup.string().required('password tidak boleh kosong').max(20, 'Must be 20 characters or less'),
             })}
-            onSubmit={(values) => {
-                console.log(values)
-            }}
+            onSubmit={handleLogin}
         >
             {formik => (
                 <Box px={'16'} py={'8'} bg={{sm: 'transparent', md: 'white'}} position={'relative'} color={'black'} w="650px" h="650px" borderRadius="4xl" shadow="md">
@@ -30,23 +45,25 @@ const SignInForms = () => {
                         Sign in
                     </Text>
                     <Text fontSize="sm" mb={6}>
-                        Enter your email address and password to access admin panel.
+                        Enter your username address and password to access admin panel.
                     </Text>
                     <Form>
                         <VStack spacing={4}>
                             <Field 
-                                label="Email"
+                                label="username"
                                 mb={4}
-                                helperText="We'll never share your email with anyone else."
-                                errorText={formik.touched.email && formik.errors.email} // Show error only after field is touched
+                                helperText="We'll never share your username with anyone else."
+                                errorText={formik.touched.username && formik.errors.username}
+                                invalid={formik.touched.username && formik.errors.username}
+                                 // Show error only after field is touched
                             >
                                 <Input 
                                     border="none" 
                                     borderBottom={"1px solid black"} 
                                     p={"10px"} 
-                                    name="email" 
-                                    placeholder="Email"
-                                    type="email"
+                                    name="username" 
+                                    placeholder="username"
+                                    type="username"
                                     onChange={(e) => {
                                         console.log(e.target.value);
                                         formik.handleChange(e);
@@ -58,6 +75,7 @@ const SignInForms = () => {
                                 label="Password"
                                 helperText="We'll never share your password with anyone else."
                                 errorText={formik.touched.password && formik.errors.password}
+                                invalid={formik.touched.username && formik.errors.username}
                             >
                                 <PasswordInput 
                                     p={"10px"} 
@@ -65,19 +83,19 @@ const SignInForms = () => {
                                     borderBottom={"1px solid black"} 
                                     name="password" 
                                     placeholder="Password" 
-                                    onChange={(e) => {
-                                        console.log(e.target.value);
-                                        formik.handleChange(e);
-                                    }} 
+                                    onChange={formik.handleChange} 
                                 />
                             </Field>
                         </VStack>
+                            {/* {loading && <Text>Loading...</Text>}
+                            {error && <Text color="red.500">{error}</Text>} */}
+
                         <Flex justify="space-between" mt={10} mb={4}>
                             <Checkbox>Remember me</Checkbox>
                             {/* <Link href="/forgot-password" color="blue.500">
                             Forgot password?
                             </Link> */}
-                            <Button type="submit" borderRadius="lg" p="10px" bg={"#089bab"} >Sign in</Button>
+                            <Button type="submit" borderRadius="lg"  p="10px" bg={"#089bab"} >Sign In</Button>
                         </Flex>
                     </Form>
                     <Separator/>

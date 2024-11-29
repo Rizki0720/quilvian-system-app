@@ -2,11 +2,15 @@
 
 import { ChakraProvider, defaultSystem } from '@chakra-ui/react'
 import { ColorModeProvider } from './color-mode'
+import { Provider } from 'react-redux'
+import store from '@/lib/state/store'
 
-export function Provider(props) {
+export function ProviderLayout(props) {
   return (
-    <ChakraProvider value={defaultSystem}>
-      <ColorModeProvider {...props} />
-    </ChakraProvider>
+    <Provider store={store}>
+      <ChakraProvider value={defaultSystem}>
+        <ColorModeProvider {...props} />
+      </ChakraProvider>
+    </Provider>
   )
 }

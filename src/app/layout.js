@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Provider } from "@/components/ui/provider";
+import { ProviderLayout } from "@/components/ui/provider";
 import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 import SidebarWrapper from "@/components/features/Sidebar/sidebarWrapper";
 
@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning={true} >
       <body>
         <ErrorBoundary>
-          <Provider>
+          <ProviderLayout>
             <div style={{ display: "flex", height: "100vh", width: "100vw", backgroundColor: "white" }}>
               {/* Sidebar Component */}
               <SidebarWrapper />
@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
                 {children}
               </main>
             </div>
-          </Provider>
+          </ProviderLayout>
         </ErrorBoundary>
       </body>
     </html>
