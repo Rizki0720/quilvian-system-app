@@ -4,7 +4,6 @@ import { LuCheckSquare, LuFolder, LuUser } from "react-icons/lu"
 import { Bar } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import InstanceAxios from '@/lib/InstanceAxios';
 
 // Register Chart.js components

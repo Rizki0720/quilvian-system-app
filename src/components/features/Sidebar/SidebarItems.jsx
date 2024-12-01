@@ -19,10 +19,18 @@ import Link from "next/link";
 import { AccordionItemContent, AccordionItemTrigger, AccordionRoot, AccordionItem } from "@/components/ui/accordion";
 import { useState } from "react";
 export default function SideItems({isMinimized}) {
-  const [isActive, setIsActive] = useState(null);
-  const toggleItem = (itemaValues) => {
-    return setIsActive((prev) => prev === itemaValues ? null : itemaValues);
-  }
+  const [activeItems, setActiveItems] = useState({
+    Admisi: false,
+    PelayananMedis: false,
+    PenunjangMedis: false,
+  });
+
+  const toggleItem = (item) => {
+    setActiveItems((prevState) => ({
+      ...prevState,
+      [item]: !prevState[item],
+    }));
+  };
     return (
         <VStack  
             spacing={4}
@@ -41,8 +49,8 @@ export default function SideItems({isMinimized}) {
                 px={isMinimized ? "3" : "1"}
                 py={"2"}
                 value={"Admisi"}
-                bg={isMinimized ? (isActive === "Admisi" ? "teal.800" : "teal.800") : (isActive === "Admisi" ? "white" : "teal.800")}
-                color={isMinimized ? (isActive === "Admisi" ? "white" : "white") : (isActive === "Admisi" ? "teal.800" : "white")}
+                bg={isMinimized ? (activeItems.Admisi ? "teal.800" : "teal.800") : (activeItems.Admisi ? "white" : "teal.800")}
+                color={isMinimized ? (activeItems.Admisi ? "white" : "white") : (activeItems.Admisi ? "teal.800" : "white")}
                 transition="background-color 1.5s ease-in-out"
                 borderBottom={"none"}
               >
@@ -168,9 +176,9 @@ export default function SideItems({isMinimized}) {
                 px={isMinimized ? "3" : "1"}
                 pt={"2"}
                 value={"PelayananMedis"} 
-                bg={isMinimized ? (isActive === "PelayananMedis" ? "teal.800" : "teal.800") : (isActive === "PelayananMedis" ? "white" : "teal.800")}
-                color={isMinimized ? (isActive === "PelayananMedis" ? "white" : "white") : (isActive === "PelayananMedis" ? "teal.800" : "white")}
-                transition={isActive === "PelayananMedis" ? "background-color 1.5s ease-in-out" : "background-color 1.5s ease-in-out"}
+                bg={isMinimized ? (activeItems.PelayananMedis ? "teal.800" : "teal.800") : (activeItems.PelayananMedis ? "white" : "teal.800")}
+                color={isMinimized ? (activeItems.PelayananMedis ? "white" : "white") : (activeItems.PelayananMedis ? "teal.800" : "white")}
+                transition={activeItems.PelayananMedis ? "background-color 1.5s ease-in-out" : "background-color 1.5s ease-in-out"}
                 borderBottom={"none"}
                 
               >
@@ -214,9 +222,9 @@ export default function SideItems({isMinimized}) {
                 px={isMinimized ? "3" : "1"}
                 pt={"2"}
                 value={"PenunjangMedis"} 
-                bg={isMinimized ? (isActive === "PenunjangMedis" ? "teal.800" : "teal.800") : (isActive === "PenunjangMedis" ? "white" : "teal.800")}
-                color={isMinimized ? (isActive === "PenunjangMedis" ? "white" : "white") : (isActive === "PenunjangMedis" ? "teal.800" : "white")}
-                transition={isActive === "PenunjangMedis" ? "background-color 1.5s ease-in-out" : "background-color 1.5s ease-in-out"}
+                bg={isMinimized ? (activeItems.PenunjangMedis ? "teal.800" : "teal.800") : (activeItems.PenunjangMedis ? "white" : "teal.800")}
+                color={isMinimized ? (activeItems.PenunjangMedis ? "white" : "white") : (activeItems.PenunjangMedis ? "teal.800" : "white")}
+                transition={activeItems.PenunjangMedis ? "background-color 1.5s ease-in-out" : "background-color 1.5s ease-in-out"}
                 borderBottom={"none"}
                 
               >

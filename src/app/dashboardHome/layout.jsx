@@ -11,7 +11,7 @@ function DashboardLayout({children}) {
   useEffect(() => {
     // const container = containerRef.current;
     const handleScroll = () => {
-      if(window.scrollY>= 75){
+      if(window.scrollY>= 45){
         setIsFixed(true);
       }else{
         setIsFixed(false);
